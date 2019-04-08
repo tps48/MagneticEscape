@@ -5,7 +5,7 @@ public class UI_Controller : MonoBehaviour
 {
     public float barDisplay;
     public Vector2 pos = new Vector2(20, 40);
-    public Vector2 size = new Vector2(600, 200);
+    public Vector2 size = new Vector2(400, 200);
     private Texture2D emptyTex;
     private Texture2D fullTex;
 

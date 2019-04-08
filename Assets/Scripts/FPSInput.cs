@@ -31,13 +31,29 @@ public class FPSInput : MonoBehaviour {
         //transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime);
         float deltaX = Input.GetAxis("Horizontal") * speed;
         float deltaZ = Input.GetAxis("Vertical") * speed;
-		Vector3 movement = new Vector3(deltaX, 0, deltaZ);
-		movement = Vector3.ClampMagnitude(movement, speed);
+		Vector3 movement = new Vector3();
+        if (Input.GetKey(KeyCode.W))
+        {
+            movement.z = speed;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            movement.z = -1 * speed;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            movement.x = speed;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            movement.x = -1 * speed;
+        }
+        movement = Vector3.ClampMagnitude(movement, speed);
 
 		movement.y = gravity;
 
 		movement *= Time.deltaTime;
-		movement = transform.TransformDirection(movement);
+		//movement = transform.TransformDirection(movement);
 		_charController.Move(movement);
 
 

@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyReactiveTarget : MonoBehaviour
 {
 
-    private void OnCollisionEnter(Collider collision)
+    void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision name = " + collision.gameObject.name);
-        if (collision.gameObject.name == "enemy" )
+        Debug.Log(collision.gameObject.name + "");
+        if (collision.gameObject.name == "Sphere" )
         {
-            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

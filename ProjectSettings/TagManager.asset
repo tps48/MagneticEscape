@@ -6,6 +6,8 @@ TagManager:
   tags:
   - UITrigger
   - zombie
+  - enemy
+  - pushobject
   layers:
   - Default
   - TransparentFX

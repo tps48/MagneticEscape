@@ -20,7 +20,7 @@ public class OrbitCamera : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate() {
 		
-		transform.position = target.position + new Vector3(0, 30, 0);
+		transform.position = target.position + new Vector3(0, 20, 0);
 	
 	}
 }

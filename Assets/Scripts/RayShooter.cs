@@ -35,28 +35,37 @@ public class RayShooter : MonoBehaviour {
         GUI.EndGroup();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
 
-        Ray ray = _camera.ScreenPointToRay(point);
-        Debug.DrawRay(point, ray.direction, Color.red, 20, true);
+        Ray[] rays = new Ray[10];
+        for (int i = 0; i < 9; i++)
+        {
+            Vector3 point = new Vector3((_camera.pixelWidth / 2) + (i-4) * 10, _camera.pixelHeight / 2, 0);
+            rays[i] = _camera.ScreenPointToRay(point);
+            Debug.DrawRay(point, rays[i].direction, Color.red, 20, true);
+        }
+
         if (Input.GetMouseButton(0) && barDisplay > 0.01)
         {
             barDisplay -= Time.deltaTime * 0.2f;
             if (barDisplay > 0.011)
             {
                 _light.color = new Color(250, 0, 5);
-            }
 
-            RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
-            foreach (RaycastHit hit in hits)
-            {
-                GameObject hitObject = hit.transform.gameObject;
-                ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
-                if (target != null)
+
+                foreach (Ray ray in rays)
                 {
-                    target.ReactToHit(this.transform.position, 1);
+                    RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+                    foreach (RaycastHit hit in hits)
+                    {
+                        GameObject hitObject = hit.transform.gameObject;
+                        ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
+                        if (target != null)
+                        {
+                            target.ReactToHit(this.transform.position, 1);
+                        }
+                    }
                 }
             }
         }
@@ -66,17 +75,23 @@ public class RayShooter : MonoBehaviour {
             if (barDisplay > 0.011)
             {
                 _light.color = new Color(0, 212, 250);
-            }
-            RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
-            foreach (RaycastHit hit in hits)
-            {
-                GameObject hitObject = hit.transform.gameObject;
-                ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
-                if (target != null)
+
+
+                foreach (Ray ray in rays)
                 {
-                    target.ReactToHit(this.transform.position, -1);
+                    RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+                    foreach (RaycastHit hit in hits)
+                    {
+                        GameObject hitObject = hit.transform.gameObject;
+                        ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
+                        if (target != null)
+                        {
+                            target.ReactToHit(this.transform.position, -1);
+                        }
+                    }
                 }
             }
+        
         }
         else
         {

@@ -80,7 +80,7 @@ public class RayShooter : MonoBehaviour {
         }
         else
         {
-            _light.color = new Color(215, 166, 34);
+            _light.color = new Color(230, 0, 255);
             if (barDisplay < 1)
             {
                 barDisplay += Time.deltaTime * 0.15f;

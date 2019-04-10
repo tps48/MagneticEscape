@@ -12,4 +12,13 @@ public class PlayerCharacter : MonoBehaviour {
 		_health -= damage;
 		Debug.Log("Health: " + _health);
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Fireball")
+        {
+
+            Hurt(1);
+        }
+    }
 }

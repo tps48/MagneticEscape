@@ -30,7 +30,7 @@ public class MouseLook : MonoBehaviour {
 	void Update() {
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.LookAt(new Vector3(mousePos.x, 0.08000004f, mousePos.z));
+        transform.LookAt(new Vector3(mousePos.x, 0.58000004f, mousePos.z));
 
 
     }

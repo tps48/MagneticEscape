@@ -19,7 +19,7 @@ public class RayShooter : MonoBehaviour {
 	void Start() {
 		_camera = GetComponent<Camera>();
         _light = spotLight.GetComponent<Light>();
-		
+        barDisplay = 1;
 	}
 
     void OnGUI()

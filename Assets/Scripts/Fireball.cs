@@ -2,14 +2,26 @@
 using System.Collections;
 
 public class Fireball : MonoBehaviour {
-	public float speed = 10.0f;
+	public int speed = 1000;
 	public int damage = 1;
+    public float height = 1;
+    Rigidbody body;
 
-	void Update() {
-		transform.Translate(0, 0, speed * Time.deltaTime);
-	}
 
-	void OnTriggerEnter(Collider other) {
+    private void Start()
+    {
+        body = GetComponent<Rigidbody>();
+        body.AddForce(transform.forward * speed);
+    }
+
+    private void Update()
+    {
+        float x = transform.position.x;
+        float z = transform.position.z;
+        transform.position = new Vector3(x, height, z);
+    }
+
+    void OnTriggerEnter(Collider other) {
 		PlayerCharacter player = other.GetComponent<PlayerCharacter>();
 		if (player != null) {
 			player.Hurt(damage);

@@ -16,7 +16,7 @@ public class WanderingAI : MonoBehaviour
         _alive = true;
     }
 
-    void Update()
+    void Update() 
     {
         if (_alive)
         {

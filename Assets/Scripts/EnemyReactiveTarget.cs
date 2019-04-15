@@ -10,6 +10,7 @@ public class EnemyReactiveTarget : MonoBehaviour
         Debug.Log(collision.gameObject.name + "");
         if ((collision.gameObject.GetComponent("ReactiveTarget") as ReactiveTarget) != null)
         {
+            GameObject.FindGameObjectWithTag("EnemyDeath").GetComponent<MusicClass1>().PlayMusic();
             Destroy(this.gameObject);
         }
     }

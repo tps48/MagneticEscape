@@ -48,6 +48,7 @@ public class RayShooter : MonoBehaviour {
 
         if (Input.GetMouseButton(0) && barDisplay > 0.01)
         {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass1>().PlayMusic();
             barDisplay -= Time.deltaTime * 0.2f;
             if (barDisplay > 0.011)
             {
@@ -71,6 +72,7 @@ public class RayShooter : MonoBehaviour {
         }
         else if (Input.GetMouseButton(1) && barDisplay > 0.01)
         {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass1>().PlayMusic();
             barDisplay -= Time.deltaTime * 0.2f;
             if (barDisplay > 0.011)
             {
@@ -95,6 +97,7 @@ public class RayShooter : MonoBehaviour {
         }
         else
         {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass1>().StopMusic();
             _light.color = new Color(230, 0, 255);
             if (barDisplay < 1)
             {

@@ -8,6 +8,9 @@ TagManager:
   - zombie
   - enemy
   - pushobject
+  - Music
+  - Shoot
+  - EnemyDeath
   layers:
   - Default
   - TransparentFX

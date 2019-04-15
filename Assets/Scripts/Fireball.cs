@@ -12,6 +12,7 @@ public class Fireball : MonoBehaviour {
     {
         body = GetComponent<Rigidbody>();
         body.AddForce(transform.forward * speed);
+        GameObject.FindGameObjectWithTag("Shoot").GetComponent<MusicClass1>().PlayMusic();
     }
 
     private void Update()

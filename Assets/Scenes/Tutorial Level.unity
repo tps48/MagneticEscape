@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1488,7 +1488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820760576}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -7.824, y: 0, z: 10.626}
+  m_LocalPosition: {x: -26.4, y: -44.3, z: 42.8}
   m_LocalScale: {x: 0.48185432, y: 7.235888, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1955,7 +1955,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb8f193bada9942a89353b8587161eab, type: 2}
+  - {fileID: 2100000, guid: 114757596bdfd414b8b81c3ac5cc38c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2651,6 +2651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bcd54ccac8d9c4a8293d1adef619d7d4, type: 2}
     - target: {fileID: 9500000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
       propertyPath: m_Controller
       value: 
@@ -2659,10 +2663,6 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 18e9c3b3aace604418a09dd748172e25, type: 3}
-    - target: {fileID: 13700000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bcd54ccac8d9c4a8293d1adef619d7d4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
 --- !u!1 &1397910385
@@ -3170,6 +3170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4586ff2d704fd474d85d14c96914123e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {x: 1464, y: 682}
+  size: {x: 600, y: 200}
 --- !u!143 &1518580993
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3503,6 +3505,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d3e1504304b64172b6fa768ffe44cde, type: 2}
     - target: {fileID: 9500000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
       propertyPath: m_Controller
       value: 
@@ -3511,10 +3517,6 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 18e9c3b3aace604418a09dd748172e25, type: 3}
-    - target: {fileID: 13700000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7d3e1504304b64172b6fa768ffe44cde, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214fa1b6af22ec2498c8b9dc82cf49bb, type: 3}
 --- !u!1 &1576486623 stripped

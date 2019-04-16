@@ -33,11 +33,11 @@ public class PlayerCharacter : MonoBehaviour {
     void OnGUI()
     {
 
-        GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
+        /*GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
         GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex);
         GUI.BeginGroup(new Rect(0, 0, size.x * _health/5, size.y));
         GUI.Box(new Rect(0, 0, size.x, size.y), fullTex);
         GUI.EndGroup();
-        GUI.EndGroup();
+        GUI.EndGroup();*/
     }
 }

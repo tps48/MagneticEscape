@@ -9,6 +9,7 @@ public class Spreadshot : MonoBehaviour
     public Vector3 rightoffset = new Vector3(0, 0, 1.2f);
     public Vector3 leftoffset = new Vector3(0, 0, 0.8f);
 
+    private EnemyReactiveTarget _enemyReactiveTarget;
 
     [SerializeField] private GameObject fireballPrefab;
     private GameObject _fireball1;
@@ -20,6 +21,7 @@ public class Spreadshot : MonoBehaviour
     void Start()
     {
         _alive = true;
+        _enemyReactiveTarget = GetComponent<EnemyReactiveTarget>();
     }
 
     void Update()
@@ -34,7 +36,7 @@ public class Spreadshot : MonoBehaviour
                 GameObject hitObject = hit.transform.gameObject;
                 if (hitObject.GetComponent<PlayerCharacter>())
                 {
-                    if (_fireball1 == null)
+                    if (_fireball1 == null && _enemyReactiveTarget._alive == true)
                     {
                         _fireball1 = Instantiate(fireballPrefab) as GameObject;
                         _fireball2 = Instantiate(fireballPrefab) as GameObject;

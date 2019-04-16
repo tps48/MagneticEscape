@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class EnemyReactiveTarget : MonoBehaviour
 {
+    public bool _alive;
+    private Animator _animator;
+
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("isAlive", true);
+        _alive = true;
+    }
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -11,7 +22,22 @@ public class EnemyReactiveTarget : MonoBehaviour
         if ((collision.gameObject.GetComponent("ReactiveTarget") as ReactiveTarget) != null)
         {
             GameObject.FindGameObjectWithTag("EnemyDeath").GetComponent<MusicClass1>().PlayMusic();
-            Destroy(this.gameObject);
+
+            _animator.SetBool("isAlive", false);
+            _alive = false;
+            StartCoroutine(Die());
+
         }
+    }
+
+    private IEnumerator Die()
+    {
+
+        yield return new WaitForSeconds(1.5f);
+
+        Destroy(this.gameObject);
+        
+
+
     }
 }

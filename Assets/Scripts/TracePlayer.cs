@@ -15,13 +15,12 @@ public class TracePlayer : MonoBehaviour
     {
         range = 500.0f;
         player = GameObject.Find("Player");
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Player Position = " + player.transform.position);
-        //Debug.Log("Enemy Position = " + this.transform.position);
         if ((player.transform.position - this.transform.position).sqrMagnitude < range)
         {
             transform.LookAt(player.transform);

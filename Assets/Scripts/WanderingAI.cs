@@ -6,6 +6,8 @@ public class WanderingAI : MonoBehaviour
     public float speed = 3.0f;
     public float obstacleRange = 5.0f;
 
+    private EnemyReactiveTarget _enemyReactiveTarget;
+
     [SerializeField] private GameObject fireballPrefab;
     private GameObject _fireball;
 
@@ -14,6 +16,7 @@ public class WanderingAI : MonoBehaviour
     void Start()
     {
         _alive = true;
+        _enemyReactiveTarget = GetComponent<EnemyReactiveTarget>();
     }
 
     void Update() 
@@ -27,7 +30,7 @@ public class WanderingAI : MonoBehaviour
                 GameObject hitObject = hit.transform.gameObject;
                 if (hitObject.GetComponent<PlayerCharacter>())
                 {
-                    if (_fireball == null)
+                    if (_fireball == null && _enemyReactiveTarget._alive == true)
                     {
                         _fireball = Instantiate(fireballPrefab) as GameObject;
                         _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);

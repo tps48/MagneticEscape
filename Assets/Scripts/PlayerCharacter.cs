@@ -28,6 +28,10 @@ public class PlayerCharacter : MonoBehaviour {
         {
             Hurt(1);
         }
+        else if (collision.gameObject.name == "Enemy")
+        {
+            Hurt(5);
+        }
     }
 
     void OnGUI()

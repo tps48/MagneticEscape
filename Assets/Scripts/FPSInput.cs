@@ -13,6 +13,7 @@ public class FPSInput : MonoBehaviour {
 	public float gravity = -9.8f;
 
 	private CharacterController _charController;
+    private Animator _animator;
 
 	void Awake() {
 		//Keep Player speed constant
@@ -25,30 +26,62 @@ public class FPSInput : MonoBehaviour {
 
 	void Start() {
 		_charController = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>();
 	}
 	
 	void Update() {
         //transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime);
         float deltaX = Input.GetAxis("Horizontal") * speed;
         float deltaZ = Input.GetAxis("Vertical") * speed;
-		Vector3 movement = new Vector3();
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 movement = new Vector3();
         if (Input.GetKey(KeyCode.W))
         {
             movement.z = speed;
         }
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             movement.z = -1 * speed;
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             movement.x = speed;
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             movement.x = -1 * speed;
         }
+
         movement = Vector3.ClampMagnitude(movement, speed);
+
+        if (Mathf.Abs(movement.x) >= 0.01 || Mathf.Abs(movement.z) >= 0.01)
+        {
+            float angle = Vector3.SignedAngle(mousePos, movement, Vector3.down);
+            if ((angle < 45 && angle > 0) || (angle > -45 && angle < 0))
+            {
+                _animator.SetFloat("Forward", 1);
+            }
+            else if((angle > 45 && angle < 135))
+            {
+                _animator.SetFloat("Right", 1);
+            }
+            else if ((angle < -45 && angle > -135))
+            {
+                _animator.SetFloat("Left", 1);
+            }
+            else if ((angle > 135 || angle < -135))
+            {
+                _animator.SetFloat("Backward", 1);
+            }
+        }
+        else
+        {
+            _animator.SetFloat("Forward", 0);
+            _animator.SetFloat("Backward", 0);
+            _animator.SetFloat("Left", 0);
+            _animator.SetFloat("Right", 0);
+        }
+
 
 		movement.y = gravity;
 

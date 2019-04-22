@@ -8,9 +8,11 @@ public class PlayerCharacter : MonoBehaviour {
     public Vector2 size = new Vector2(600, 200);
     private Texture2D emptyTex;
     private Texture2D fullTex;
+    private Animator _animator;
 
     void Start() {
 		_health = 5;
+        _animator = GetComponent<Animator>();
 	}
 
 	public void Hurt(int damage) {
@@ -18,19 +20,22 @@ public class PlayerCharacter : MonoBehaviour {
 		Debug.Log("Health: " + _health);
         if (_health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(Die());
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Fireball")
+        if (_health > 0)
         {
-            Hurt(1);
-        }
-        else if (collision.gameObject.name == "Enemy")
-        {
-            Hurt(5);
+            if (collision.gameObject.name == "Fireball")
+            {
+                Hurt(1);
+            }
+            else if (collision.gameObject.name == "Enemy")
+            {
+                Hurt(5);
+            }
         }
     }
 
@@ -43,5 +48,15 @@ public class PlayerCharacter : MonoBehaviour {
         GUI.Box(new Rect(0, 0, size.x, size.y), fullTex);
         GUI.EndGroup();
         GUI.EndGroup();*/
+    }
+
+    private IEnumerator Die()
+    {
+        if (_health == 0)
+        {
+            _animator.SetTrigger("Death");
+        }
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

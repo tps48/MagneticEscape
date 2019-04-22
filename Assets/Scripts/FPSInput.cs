@@ -56,20 +56,20 @@ public class FPSInput : MonoBehaviour {
 
         if (Mathf.Abs(movement.x) >= 0.01 || Mathf.Abs(movement.z) >= 0.01)
         {
-            float angle = Vector3.SignedAngle(mousePos, movement, Vector3.down);
-            if ((angle < 45 && angle > 0) || (angle > -45 && angle < 0))
+            float angle = Vector3.Angle(mousePos, movement);
+            if ((angle < 90) || (angle > -45 && angle < 0))
             {
                 _animator.SetFloat("Forward", 1);
             }
-            else if((angle > 45 && angle < 135))
+            /*else if((angle > 45 && angle < 135))
             {
                 _animator.SetFloat("Right", 1);
             }
             else if ((angle < -45 && angle > -135))
             {
                 _animator.SetFloat("Left", 1);
-            }
-            else if ((angle > 135 || angle < -135))
+            }*/
+            else if ((angle > 90 || angle < -135))
             {
                 _animator.SetFloat("Backward", 1);
             }

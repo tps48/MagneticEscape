@@ -12,7 +12,7 @@ public class Charge : MonoBehaviour
     void Start()
     {
         showText = false;
-        range = 100.0f;
+        range = 200.0f;
         player = GameObject.Find("Player");
     }
 

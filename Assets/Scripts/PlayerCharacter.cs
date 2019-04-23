@@ -43,13 +43,11 @@ public class PlayerCharacter : MonoBehaviour {
 
     void OnGUI()
     {
-
-        /*GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
-        GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex);
-        GUI.BeginGroup(new Rect(0, 0, size.x * _health/5, size.y));
-        GUI.Box(new Rect(0, 0, size.x, size.y), fullTex);
-        GUI.EndGroup();
-        GUI.EndGroup();*/
+        int maxHealth = _health;
+        if (maxHealth < 0) maxHealth = 0;
+        GUI.skin.label.fontSize = 100;
+        GUI.contentColor = Color.yellow;
+        GUI.Label(new Rect(Screen.width - 500, 0, 1000, 250), "Health: " +maxHealth);
     }
 
     private IEnumerator Die()

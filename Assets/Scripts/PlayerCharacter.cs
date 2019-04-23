@@ -8,9 +8,13 @@ public class PlayerCharacter : MonoBehaviour {
     public Vector2 size = new Vector2(600, 200);
     private Texture2D emptyTex;
     private Texture2D fullTex;
+    private Animator _animator;
+    private FPSInput _fpsInput;
 
     void Start() {
 		_health = 5;
+        _animator = GetComponent<Animator>();
+        _fpsInput = GetComponent<FPSInput>();
 	}
 
 	public void Hurt(int damage) {
@@ -18,30 +22,42 @@ public class PlayerCharacter : MonoBehaviour {
 		Debug.Log("Health: " + _health);
         if (_health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(Die());
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Fireball")
+        if (_health > 0)
         {
-            Hurt(1);
-        }
-        else if (collision.gameObject.name == "Enemy")
-        {
-            Hurt(5);
+            if (collision.gameObject.name == "Fireball")
+            {
+                Hurt(1);
+            }
+            else if (collision.gameObject.name == "Enemy")
+            {
+                Hurt(5);
+            }
         }
     }
 
     void OnGUI()
     {
+        int maxHealth = _health;
+        if (maxHealth < 0) maxHealth = 0;
+        GUI.skin.label.fontSize = 100;
+        GUI.contentColor = Color.yellow;
+        GUI.Label(new Rect(Screen.width - 500, 0, 1000, 250), "Health: " +maxHealth);
+    }
 
-        /*GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
-        GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex);
-        GUI.BeginGroup(new Rect(0, 0, size.x * _health/5, size.y));
-        GUI.Box(new Rect(0, 0, size.x, size.y), fullTex);
-        GUI.EndGroup();
-        GUI.EndGroup();*/
+    private IEnumerator Die()
+    {
+        _fpsInput.alive = false;
+        if (_health == 0)
+        {
+            _animator.SetTrigger("Death");
+        }
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

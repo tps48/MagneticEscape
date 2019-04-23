@@ -14,7 +14,7 @@ public class UISceneController : MonoBehaviour {
 	
 
 	public void Restart() {
-		Application.LoadLevel("Lvl1");
+		Application.LoadLevel("Tutorial Level");
 	}
 
     public void QuitGame(){

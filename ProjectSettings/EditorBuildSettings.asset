@@ -4,11 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: [{enabled: 1, path: Assets/Scenes/Tutorial Level.unity, guid: c5602d0ebb5e24ffca560c286576ae1d},
-    {enabled: 1, path: Assets/Scenes/Lvl1.unity, guid: d2fb47449bbdc45f68eb68855bf8aca5},
-    {enabled: 1, path: Assets/Scenes/Lvl2.unity, guid: c8aa7308a1543464ca2e5ce8806afdf1},
-    {enabled: 1, path: Assets/Scenes/LoadMenu.unity, guid: c65d21a9079a2b74a803025513637a9a},
-    {enabled: 1, path: Assets/Scenes/Lvl1.unity, guid: d2fb47449bbdc45f68eb68855bf8aca5},
-    {enabled: 1, path: Assets/Scenes/Lvl2.unity, guid: c8aa7308a1543464ca2e5ce8806afdf1},
-    {enabled: 1, path: Assets/Scenes/Tutorial Level.unity, guid: c5602d0ebb5e24ffca560c286576ae1d}]
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Tutorial Level.unity
+    guid: c5602d0ebb5e24ffca560c286576ae1d
+  - enabled: 0
+    path: Assets/Scenes/Lvl1.unity
+    guid: d2fb47449bbdc45f68eb68855bf8aca5
+  - enabled: 0
+    path: Assets/Scenes/Lvl2.unity
+    guid: c8aa7308a1543464ca2e5ce8806afdf1
+  - enabled: 1
+    path: Assets/Scenes/LoadMenu.unity
+    guid: c65d21a9079a2b74a803025513637a9a
+  - enabled: 1
+    path: Assets/Scenes/Lvl1.unity
+    guid: d2fb47449bbdc45f68eb68855bf8aca5
+  - enabled: 1
+    path: Assets/Scenes/Lvl2.unity
+    guid: c8aa7308a1543464ca2e5ce8806afdf1
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Level.unity
+    guid: c5602d0ebb5e24ffca560c286576ae1d
   m_configObjects: {}

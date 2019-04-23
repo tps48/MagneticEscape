@@ -40,25 +40,31 @@ public class TeleportScript : MonoBehaviour
     {
         if (showText)
         {
+            int windowWidth = 500;
+            int windowHeight = 500;
+            int x = (Screen.width - windowWidth) / 2;
+            int y = (Screen.height - windowWidth) / 2;
+            GUI.skin.label.fontSize = 100;
+            GUI.contentColor = Color.blue;
             if (endTime - startTime < 90)
             {
-                GUI.Label(new Rect(450, 100, 200f, 200f), "Your grade: S!");
+                GUI.Label(new Rect(x, y, windowWidth, windowHeight), "Your grade: S!");
             }
             else if (endTime - startTime > 90 && endTime - startTime < 120)
             {
-                GUI.Label(new Rect(450, 100, 200f, 200f), "Your grade: A!");
+                GUI.Label(new Rect(x, y, windowWidth, windowHeight), "Your grade: A!");
             }
             else if (endTime - startTime > 120 && endTime - startTime < 150)
             {
-                GUI.Label(new Rect(450, 100, 200f, 200f), "Your grade: B!");
+                GUI.Label(new Rect(x, y, windowWidth, windowHeight), "Your grade: B!");
             }
             else if (endTime - startTime > 150 && endTime - startTime < 180) 
             {
-                GUI.Label(new Rect(450, 100, 200f, 200f), "Your grade: C!");
+                GUI.Label(new Rect(x, y, windowWidth, windowHeight), "Your grade: C!");
             }
             else if (endTime - startTime > 180)
             {
-                GUI.Label(new Rect(450, 100, 200f, 200f), "Your grade: D!");
+                GUI.Label(new Rect(x, y, windowWidth, windowHeight), "Your grade: D!");
             }
         }
     }

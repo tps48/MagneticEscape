@@ -17,12 +17,13 @@ using System.Collections;
 
 
 public class MouseLook : MonoBehaviour {
-    
 
+    private FPSInput fps;
     
     void Start() {
 		// Make the rigid body not change rotation
 		Rigidbody body = GetComponent<Rigidbody>();
+        fps = GetComponent<FPSInput>();
 		if (body != null)
 			body.freezeRotation = true;
 
@@ -30,8 +31,11 @@ public class MouseLook : MonoBehaviour {
 
 	void Update() {
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.LookAt(new Vector3(mousePos.x, 0.58000004f, mousePos.z));
+        if (!fps.pauseVisible)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.LookAt(new Vector3(mousePos.x, 0.58000004f, mousePos.z));
+        }
 
 
     }

@@ -9,10 +9,12 @@ public class PlayerCharacter : MonoBehaviour {
     private Texture2D emptyTex;
     private Texture2D fullTex;
     private Animator _animator;
+    private FPSInput _fpsInput;
 
     void Start() {
 		_health = 5;
         _animator = GetComponent<Animator>();
+        _fpsInput = GetComponent<FPSInput>();
 	}
 
 	public void Hurt(int damage) {
@@ -52,6 +54,7 @@ public class PlayerCharacter : MonoBehaviour {
 
     private IEnumerator Die()
     {
+        _fpsInput.alive = false;
         if (_health == 0)
         {
             _animator.SetTrigger("Death");

@@ -2,34 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Deflection : MonoBehaviour
+public class BossEnemyReactiveTarget : MonoBehaviour
 {
     public bool _alive;
     private Animator _animator;
-    private int _hitAmt;
-    public int _deflectAmt;
-
+    public Deflection _deflect;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _animator.SetBool("isAlive", true);
         _alive = true;
-        _hitAmt = 0;
-        _deflectAmt = 0; 
+        _deflect = GetComponent<Deflection>();
     }
 
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name + "");
         if ((collision.gameObject.GetComponent("ReactiveTarget") as ReactiveTarget) != null)
-        {
-            if (_hitAmt < 5)
+            if (_deflect._deflectAmt < 5)
             {
-                _hitAmt++;
-                Physics.IgnoreCollision(GameObject.FindWithTag("ReactiveTarget").GetComponent<Collider>(), GetComponent<Collider>(), true);
+                _deflect._deflectAmt++;
             }
-
             else
             {
                 GameObject.FindGameObjectWithTag("EnemyDeath").GetComponent<MusicClass1>().PlayMusic();
@@ -37,10 +32,9 @@ public class Deflection : MonoBehaviour
                 _animator.SetBool("isAlive", false);
                 _alive = false;
                 StartCoroutine(Die());
+
             }
         }
-    }
-
 
     private IEnumerator Die()
     {
@@ -48,9 +42,9 @@ public class Deflection : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         Destroy(this.gameObject);
+
+
+
     }
 }
-
-
-
 

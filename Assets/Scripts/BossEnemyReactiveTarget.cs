@@ -6,14 +6,17 @@ public class BossEnemyReactiveTarget : MonoBehaviour
 {
     public bool _alive;
     private Animator _animator;
-    public Deflection _deflect;
+    [SerializeField] public int BossHealth;
+    public int hitNumber;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _animator.SetBool("isAlive", true);
         _alive = true;
-        _deflect = GetComponent<Deflection>();
+        BossHealth = 5;
+        hitNumber = 1;
+        
     }
 
 
@@ -21,9 +24,10 @@ public class BossEnemyReactiveTarget : MonoBehaviour
     {
         Debug.Log(collision.gameObject.name + "");
         if ((collision.gameObject.GetComponent("ReactiveTarget") as ReactiveTarget) != null)
-            if (_deflect._deflectAmt < 5)
+            if (hitNumber < BossHealth)
             {
-                _deflect._deflectAmt++;
+                hitNumber++;
+                GameObject.FindGameObjectWithTag("EnemyDeath").GetComponent<MusicClass1>().PlayMusic();
             }
             else
             {

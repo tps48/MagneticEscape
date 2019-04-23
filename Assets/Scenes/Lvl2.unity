@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2684,7 +2684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7010c7d9cfb904e86ee4d57a570bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
 --- !u!65 &296247188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5803,7 +5802,7 @@ PrefabInstance:
     - target: {fileID: 159181621176655783, guid: 6770966cfb26542338a556c33656cfda,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 75.1
+      value: 72.1
       objectReference: {fileID: 0}
     - target: {fileID: 159181621176655783, guid: 6770966cfb26542338a556c33656cfda,
         type: 3}
@@ -5844,6 +5843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159181621176655411, guid: 6770966cfb26542338a556c33656cfda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 159181620427647948, guid: 6770966cfb26542338a556c33656cfda,
         type: 3}
@@ -12355,7 +12359,7 @@ MonoBehaviour:
   plate: {fileID: 2120494818}
   materialOn: {fileID: 2100000, guid: 3b2d9cc923368ea43a7e19bc7acddb8c, type: 2}
   materialOff: {fileID: 2100000, guid: fd266dfeea1753049843ad6c2612e6bd, type: 2}
-  destination: Tutorial Scene
+  destination: Tutorial Level
   showText: 0
   startTime: 0
   endTime: 0

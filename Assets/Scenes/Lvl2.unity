@@ -5924,7 +5924,7 @@ PrefabInstance:
     - target: {fileID: 159181621176655783, guid: 6770966cfb26542338a556c33656cfda,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.7
+      value: 57.35
       objectReference: {fileID: 0}
     - target: {fileID: 159181621176655783, guid: 6770966cfb26542338a556c33656cfda,
         type: 3}
@@ -8507,6 +8507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: BossHealth
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543555234562722782, guid: 89a42a84cd84a45459863d329f373389,
+        type: 3}
+      propertyPath: hitNumber
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7540068693814089739, guid: 89a42a84cd84a45459863d329f373389,
         type: 3}

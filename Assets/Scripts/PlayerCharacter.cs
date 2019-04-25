@@ -60,4 +60,10 @@ public class PlayerCharacter : MonoBehaviour {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    public void AddHealth() {
+        _health++;
+      }
+    public int GetHealth() {
+        return _health;
+      }
 }

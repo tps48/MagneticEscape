@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 // basic WASD-style movement control
@@ -110,6 +111,11 @@ public class FPSInput : MonoBehaviour {
         }
 
 
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnSpeedChanged(float value) {

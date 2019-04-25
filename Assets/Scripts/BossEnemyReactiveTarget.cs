@@ -22,7 +22,6 @@ public class BossEnemyReactiveTarget : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name + "");
         if ((collision.gameObject.GetComponent("ReactiveTarget") as ReactiveTarget) != null)
             if (hitNumber < BossHealth)
             {

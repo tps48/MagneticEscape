@@ -4,18 +4,25 @@ using System.Collections;
 
 public class HealthPack : MonoBehaviour
 {
+    public PlayerCharacter player;
 
+    void Start()
+    {
+        
+    }
 
     void OnCollisionEnter(Collision collision)
     {
-        PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-        if (player != null && player.GetHealth() < 5)
+        if (((collision.gameObject.GetComponent("PlayerCharacter") as PlayerCharacter) != null))
         {
-            player.AddHealth();
-        }
-        else
-        {
-            Physics.IgnoreCollision(GameObject.FindWithTag("PlayerCharacter").GetComponent<Collider>(), GetComponent<Collider>(), true);
+            if (player != null && player.GetHealth() < 5)
+            {
+                player.AddHealth();
+            }
+            else
+            {
+                Physics.IgnoreCollision(GameObject.FindWithTag("Player").GetComponent<Collider>(), GetComponent<Collider>(), true);
+            }
         }
         Destroy(this.gameObject);
     }

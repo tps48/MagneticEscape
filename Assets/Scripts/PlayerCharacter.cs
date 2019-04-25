@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerCharacter : MonoBehaviour {
-	private int _health;
+	public int _health;
     public Vector2 pos = new Vector2(Screen.width-200, Screen.height-400);
     public Vector2 size = new Vector2(600, 200);
     private Texture2D emptyTex;
@@ -38,6 +38,10 @@ public class PlayerCharacter : MonoBehaviour {
             {
                 Hurt(5);
             }
+            else if (collision.gameObject.name == "Healthpack")
+            {
+                AddHealth();
+            }
         }
     }
 
@@ -47,7 +51,7 @@ public class PlayerCharacter : MonoBehaviour {
         if (maxHealth < 0) maxHealth = 0;
         GUI.skin.label.fontSize = 100;
         GUI.contentColor = Color.yellow;
-        GUI.Label(new Rect(Screen.width - 500, 0, 1000, 250), "Health: " +maxHealth);
+        GUI.Label(new Rect(Screen.width - 500, 0, 1000, 250), "Health: " + maxHealth);
     }
 
     private IEnumerator Die()
@@ -61,7 +65,11 @@ public class PlayerCharacter : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void AddHealth() {
-        _health++;
+        if (_health < 5)
+        {
+            _health = _health + 1;
+        }
+        
       }
     public int GetHealth() {
         return _health;

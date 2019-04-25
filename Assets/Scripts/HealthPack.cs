@@ -6,9 +6,9 @@ public class HealthPack : MonoBehaviour
 {
 
 
-    void OnCollisionEnter(Collider collision)
+    void OnCollisionEnter(Collision collision)
     {
-        PlayerCharacter player = collision.GetComponent<PlayerCharacter>();
+        PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
         if (player != null && player.GetHealth() < 5)
         {
             player.AddHealth();

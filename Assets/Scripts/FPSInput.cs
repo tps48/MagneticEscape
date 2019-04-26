@@ -51,19 +51,19 @@ public class FPSInput : MonoBehaviour {
             Vector3 movement = new Vector3();
             if (Input.GetKey(KeyCode.W))
             {
-                movement.z = speed;
+                movement.z += speed;
             }
-            else if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
-                movement.z = -1 * speed;
+                movement.z += -1 * speed;
             }
-            else if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
             {
-                movement.x = speed;
+                movement.x += speed;
             }
-            else if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
-                movement.x = -1 * speed;
+                movement.x += -1 * speed;
             }
 
             movement = Vector3.ClampMagnitude(movement, speed);

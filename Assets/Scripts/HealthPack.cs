@@ -18,12 +18,12 @@ public class HealthPack : MonoBehaviour
             if (player != null && player.GetHealth() < 5)
             {
                 player.AddHealth();
+                Destroy(this.gameObject);
             }
             else
             {
                 Physics.IgnoreCollision(GameObject.FindWithTag("Player").GetComponent<Collider>(), GetComponent<Collider>(), true);
             }
         }
-        Destroy(this.gameObject);
     }
 }

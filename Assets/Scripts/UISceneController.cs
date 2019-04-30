@@ -7,9 +7,12 @@ public class UISceneController : MonoBehaviour {
     [SerializeField] private GameObject quitButton;
     [SerializeField] private GameObject replayButton;
     [SerializeField] private GameObject winAward;
+    [SerializeField] private GameObject text;
+    private bool showing = false;
 
 	// Use this for initialization
 	void Start() {
+        text.SetActive(showing);
     }
 	
 
@@ -26,5 +29,11 @@ public class UISceneController : MonoBehaviour {
         PlayerPrefs.SetInt("ySize", int.Parse(newSize[0]));
         PlayerPrefs.SetInt("xSize", int.Parse(newSize[1]));
         Restart();
+    }
+
+    public void ShowText()
+    {
+        showing = !showing;
+        text.SetActive(showing);
     }
 }

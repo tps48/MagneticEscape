@@ -40,7 +40,7 @@ public class PlayerCharacter : MonoBehaviour {
             }
             else if (collision.gameObject.name == "Healthpack")
             {
-                AddHealth();
+              //  AddHealth();
             }
         }
     }

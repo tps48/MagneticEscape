@@ -18,6 +18,7 @@ public class HealthPack : MonoBehaviour
             if (player != null && player.GetHealth() < 5)
             {
                 player.AddHealth();
+                player.AddHealth();
                 Destroy(this.gameObject);
             }
             else
